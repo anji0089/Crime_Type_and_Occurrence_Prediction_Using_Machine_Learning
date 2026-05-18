@@ -1,0 +1,82 @@
+{% extends 'users/userbase.html' %}
+{% block contents %}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    h1, h2 {
+        color: #ece3e3;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    p {
+        text-align: center;
+        font-size: 1.2em;
+        color: #ebe7e7;
+    }
+
+    table {
+        width: 100%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background: #f9f9f9;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    thead tr {
+        background: #007bff;
+        color: white;
+    }
+
+    th, td {
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+
+    tbody tr:nth-child(even) {
+        background: #f2f2f2;
+    }
+
+    tbody tr:hover {
+        background: #d6e4ff;
+    }
+
+    th {
+        font-size: 1.1em;
+    }
+
+    td {
+        font-size: 1em;
+        color: #555;
+    }
+</style>
+
+<h1>Training Results</h1>
+<p>Model Accuracy: <strong>{{ accuracy }}</strong></p>
+<h2>Classification Report</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Class</th>
+            <th>Precision</th>
+            <th>Recall</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for label, metrics in classification_report.items %}
+            {% if label != 'accuracy' and label != 'macro avg' and label != 'weighted avg' %}
+                <tr>
+                    <td>{{ label }}</td>
+                    <td>{{ metrics.precision }}</td>
+                    <td>{{ metrics.recall }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

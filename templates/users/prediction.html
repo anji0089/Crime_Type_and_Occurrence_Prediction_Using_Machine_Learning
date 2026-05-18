@@ -1,0 +1,116 @@
+{% extends 'users/userbase.html' %}
+{% block contents %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        color: #333;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #f9f9f9;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        font-size: 1.1em;
+        color: #555;
+        display: block;
+        margin-top: 15px;
+    }
+
+    input[type="text"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        margin-top: 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.1em;
+        width: 100%;
+    }
+
+    button:hover {
+        background: #0056b3;
+    }
+
+    p {
+        font-size: 1em;
+        color: #333;
+    }
+
+    ul {
+        padding-left: 20px;
+        list-style-type: square;
+    }
+
+    li {
+        color: #555;
+    }
+</style>
+
+<h1>Make a Prediction</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="date_occurrence">Date of Occurrence:</label>
+    <input type="date" id="date_occurrence" name="Date of Occurrence" required>
+
+    <label for="time_occurrence">Time of Occurrence:</label>
+    <input type="time" id="time_occurrence" name="Time of Occurrence" required>
+
+    <label for="city">City:</label>
+    <input type="text" id="city" name="City" required>
+
+    <label for="crime_code">Crime Code:</label>
+    <input type="text" id="crime_code" name="Crime Code" required>
+
+    <label for="crime_description">Crime Description:</label>
+    <input type="text" id="crime_description" name="Crime Description" required>
+
+    <label for="victim_age">Victim Age:</label>
+    <input type="number" id="victim_age" name="Victim Age" min="0" required>
+
+    <label for="victim_gender">Victim Gender:</label>
+    <input type="text" id="victim_gender" name="Victim Gender" required>
+
+    <label for="police_deployed">Police Deployed:</label>
+    <input type="text" id="police_deployed" name="Police Deployed">
+
+    <label for="case_closed">Case Closed:</label>
+    <input type="text" id="case_closed" name="Case Closed">
+
+    <label for="weapon_used">Weapon Used:</label>
+    <input type="text" id="weapon_used" name="weapon_used">
+
+    <button type="submit">Submit</button>
+
+    {% if input_data %}
+        <p><strong>Input Data:</strong></p>
+        <ul>
+            {% for key, value in input_data.items %}
+                <li>{{ key }}: {{ value }}</li>
+            {% endfor %}
+        </ul>
+        <p><strong>Predicted Class:</strong> {{ predicted_class }}</p>
+    {% endif %}
+</form>
+{% endblock %}

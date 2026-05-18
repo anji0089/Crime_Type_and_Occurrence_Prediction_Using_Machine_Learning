@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Crime Type and Occurrence Prediction</title>
+    <meta content="Emergency Calls for Enhanced Police Dispatch Services" name="description">
+    <meta content="Police Dispatch, Emergency, Services" name="keywords">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        /* Ensure full-page layout with sticky footer */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Russo One', sans-serif;
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        nav#navbar {
+            background-color: #343a40;
+            padding: 0.5rem;
+        }
+
+        nav#navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav#navbar ul li {
+            margin: 0;
+        }
+
+        nav#navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav#navbar ul li a:hover,
+        nav#navbar ul li a.active {
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .main-content {
+            flex: 1; /* Fills available space between navbar and footer */
+            padding: 2rem;
+            
+        }
+        .content-box{
+
+            flex: 2; /* Fills available space between navbar and footer */
+            padding: 2rem;
+        }
+
+        .footer {
+      background-color: rgba(0, 0, 0, 0.3);
+      text-align: center;
+      padding: 10px 0;
+      margin-top: auto;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      color: white;
+
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Send the video to the back */
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <video class="video-background" autoplay loop muted>
+        <source src="{% static 'media/users.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Header -->
+    <header id="header">
+        <h1>Crime Type and Occurrence Prediction</h1>
+    </header>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar">
+        <ul>
+            <li><a class="nav-link scrollto" href="{% url 'UserHome' %}">Home</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'DatasetView' %}">Dataset View</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'prediction' %}">Prediction</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'home' %}">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        {% block contents %}
+        {% endblock %}
+    </div>
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Crime Type and Occurrence Prediction. All rights reserved.</p>
+    
+      </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

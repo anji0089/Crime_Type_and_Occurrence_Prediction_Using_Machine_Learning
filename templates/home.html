@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block contents %}
+{% load static %}
+<head>
+  <style>
+   
+    .hero-section {
+      background: rgba(0, 0, 0, 0.5) url("{% static 'media/background.jpg' %}") no-repeat center center / cover;
+      color: white;
+      text-align: center;
+      padding: 150px 20px;
+      margin-bottom: 20px;
+    }
+
+    .content-section {
+      padding: 20px;
+      color: beige;
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <h1>Welcome to Crime Detection and Occurrence Prediction</h1>
+    <p>Leveraging technology to ensure safer communities and informed decision-making.</p>
+  </div>
+
+  <!-- Content Section -->
+  <div class="content-section container">
+    <h2>Uses</h2>
+    <ul>
+      <li>Identify and analyze crime trends based on historical data.</li>
+      <li>Predict future crime hotspots using advanced machine learning algorithms.</li>
+      <li>Empower law enforcement with actionable insights to allocate resources effectively.</li>
+      <li>Educate communities about common crime patterns and safety measures.</li>
+      <li>Facilitate real-time reporting of suspicious activities for quick action.</li>
+    </ul>
+
+    <h2>Why It Matters</h2>
+    <p>
+      Crime prevention is essential for creating safer communities and fostering trust between citizens and law enforcement. By understanding the root causes and predicting potential occurrences, this platform helps:
+    </p>
+    <ul>
+      <li>Reduce crime rates by enabling proactive safety measures.</li>
+      <li>Minimize risks and enhance public confidence in community safety.</li>
+      <li>Support law enforcement agencies in strategic planning and response.</li>
+      <li>Encourage collaboration between citizens and authorities to address safety concerns.</li>
+    </ul>
+    <p>
+      Our goal is to leverage technology to make data-driven decisions that benefit both law enforcement and society at large.
+    </p>
+  </div>
+
+
+{% endblock %}

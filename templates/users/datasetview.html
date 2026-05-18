@@ -1,0 +1,58 @@
+{% extends 'users/userbase.html' %}
+{% block contents %}
+
+<style>
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table th, table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    table th {
+        background-color: #343a40; /* Dark grey for header */
+        color: #fff; /* White font color */
+    }
+
+    table tr {
+        background-color: #222; /* Consistent dark background */
+        color: #fff; /* Bright font color for readability */
+    }
+
+    table tr:hover {
+        background-color: #444; /* Slightly lighter grey for hover effect */
+    }
+</style>
+
+
+<h1 style="color: cadetblue;">Dataset View</h1>
+
+{% if error %}
+    <p>{{ error }}</p>
+{% else %}
+    <table>
+        <thead>
+            <tr>
+                {% for column in df.0 %}
+                    <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in df %}
+                <tr>
+                    {% for value in row.values %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+{% endblock %}
