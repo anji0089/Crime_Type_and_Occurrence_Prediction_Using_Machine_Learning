@@ -78,21 +78,6 @@ Example:
 Input: Location, time, area details, and related crime features
 Output: Predicted crime type / crime occurrence pattern
 
-##Project Structure
 
-Crime_Type_and_Occurrence_Prediction_Using_Machine_Learning/
-│
-├── dataset/
-│   └── crime_dataset.csv
-│
-├── notebooks/
-│   └── crime_prediction.ipynb
-│
-├── src/
-│   └── crime_prediction.py
-│
-├── README.md
-├── requirements.txt
-└── LICENSE
 
 
