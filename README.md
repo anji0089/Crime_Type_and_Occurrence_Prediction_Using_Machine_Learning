@@ -68,6 +68,34 @@ The main goal of this project is to support crime analysis and prediction by usi
 
 > Note: The models may vary based on the final implementation in the project.
 
+## How to Run
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/anji0089/Crime_Type_and_Occurrence_Prediction_Using_Machine_Learning.git
+```
+
+2. Open the project folder:
+
+```bash
+cd Crime_Type_and_Occurrence_Prediction_Using_Machine_Learning
+```
+
+3. Install the required libraries:
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Run Jupyter Notebook:
+
+```bash
+jupyter notebook
+```
+
+5. Open the notebook file and run all cells step by step.
+
 ## Expected Output
 
 The system predicts the possible crime type or crime occurrence pattern based on the given input data.
@@ -76,7 +104,7 @@ Example:
 
 ```text
 Input: Location, time, area details, and related crime features
-Output: Predicted crime type / crime occurrence pattern
+Output: Predicted crime category basedon the given input features
 
 
 
