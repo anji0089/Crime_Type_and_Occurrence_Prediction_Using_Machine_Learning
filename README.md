@@ -88,13 +88,17 @@ cd Crime_Type_and_Occurrence_Prediction_Using_Machine_Learning
 pip install -r requirements.txt
 ```
 
-4. Run Jupyter Notebook:
+4. Run the Django server:
 
 ```bash
-jupyter notebook
+python manage.py runserver
 ```
 
-5. Open the notebook file and run all cells step by step.
+5. Open the local server link in your browser:
+
+```text
+http://127.0.0.1:8000/
+```
 
 ## Expected Output
 
